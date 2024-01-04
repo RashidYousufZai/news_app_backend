@@ -1,17 +1,24 @@
 import { Story } from "../Models/StoriesSchema.js";
+import { validationResult } from 'express-validator';
 
 
 const createStory = async (req, res) => {
     try {
-        const { title, image } = req.body;
-        const newArticle = new Story({ title, image });
-        const savedArticle = await newArticle.save();
-        res.json(savedArticle);
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { title, images } = req.body;
+        const newStory = new Story({ title, images });
+        const savedStory = await newStory.save();
+        res.json(savedStory);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send("Internal Server Error");
     }
 };
+
 
 const getStoryById = async (req, res) => {
     try {

@@ -55,7 +55,7 @@ const ArticleSchema = mongoose.Schema(
     newsType: {
       type: String,
       required: true,
-      enum: ["breakingNews", "topStories", "all"],
+      enum: ["breakingNews", "topStories", "all", "upload"],
     },
     type: {
       type: String,

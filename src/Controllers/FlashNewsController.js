@@ -6,7 +6,7 @@ const uploadNews = (req, res) => {
     let { id } = req.query;
     let idPrefix = 'LOKFL';
     flashnews.create({
-        _id: `${idPrefix}${id}`,
+        _id: `${idPrefix}${id}+${Date.now()}`,
         ...body,
         userId: id
     })

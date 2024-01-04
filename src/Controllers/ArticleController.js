@@ -306,6 +306,7 @@ const PostArticle = async (req, res) => {
 
   let idPrefix = "LOK";
 
+
   if (newsType === "breakingNews") {
     idPrefix += "BR";
   } else if (newsType === "topStories") {
