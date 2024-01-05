@@ -33,6 +33,7 @@ import { GetComment, OnComment } from "../Controllers/CommentController.js";
 import { createPoll, getAllPolls, updatePool } from "../Controllers/PollController.js";
 import { getAllNews, updateNewsStatus, uploadNews } from "../Controllers/FlashNewsController.js";
 import { createStory, getAllStories, getStoryById } from "../Controllers/StoryController.js";
+import { getData, updateStatus, uploadData } from "../Controllers/SocialMediaController.js";
 
 const route = express.Router();
 
@@ -65,6 +66,8 @@ route
 route.route("/ads").get(GetAds).post(Ads);
 route.route("/flashnews").post(uploadNews).get(getAllNews);
 route.route("/flashnews/:id/status").put(updateNewsStatus);
+route.route("/sociallink").post(uploadData).get(getData);
+route.route("/socialmedia/update/:id").put(updateStatus);
 route.route("/live").get(GetLiveStream).post(LiveStream);
 route.route("/comment").get(GetComment).post(OnComment);
 route.route("/polls").post(createPoll).get(getAllPolls);

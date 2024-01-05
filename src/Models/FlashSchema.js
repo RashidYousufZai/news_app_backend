@@ -15,6 +15,7 @@ const FlashSchema = mongoose.Schema(
             type: String,
             required: false,
         },
+        
         status: {
             type: String,
             enum: ["active", "inactive"],
