@@ -9,7 +9,13 @@ import { errHandler, responseHandler } from "../helper/response.js";
 import { Storage } from "../Config/firebase.config.js";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { ObjectId } from 'mongodb';
+import generateUniqueId from "generate-unique-id"
 
+
+const id2 = generateUniqueId({
+  length: 5,
+  useLetters: false
+});
 
 // const getArticle = (req, res) => {
 //   let {
@@ -313,7 +319,7 @@ const PostArticle = async (req, res) => {
     idPrefix += "TS";
   }
 
-  const customId = idPrefix + id + Date.now();
+  const customId = idPrefix + id2 + Date.now();
 
   console.log('Custom ID:', customId);
 
