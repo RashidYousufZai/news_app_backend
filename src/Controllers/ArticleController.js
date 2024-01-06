@@ -324,7 +324,7 @@ const PostArticle = async (req, res) => {
   console.log('Custom ID:', customId);
 
   Article.create({
-    _id: customId, // Use the ObjectId as _id
+    _id: customId,
     UserID: id,
     title,
     discription,
