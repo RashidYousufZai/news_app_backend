@@ -34,6 +34,8 @@ import { createPoll, getAllPolls, updatePool } from "../Controllers/PollControll
 import { getAllNews, updateNewsStatus, uploadNews } from "../Controllers/FlashNewsController.js";
 import { createStory, getAllStories, getStoryById } from "../Controllers/StoryController.js";
 import { getData, updateStatus, uploadData } from "../Controllers/SocialMediaController.js";
+import { createPhotoGalery, getAllPhotos, getPhotoGaleryById } from "../Controllers/PhotoGalerySchema.js";
+import { createVideoStory, getAllVideoGalery } from "../Controllers/VideoGalerySchema.js";
 
 const route = express.Router();
 
@@ -48,6 +50,14 @@ route.route("/article").get(getArticle).delete(DeleteArticle);
 
 route.route("/story").post(createStory);
 route.route('/story').get(getAllStories);
+
+route.route("/galery").post(createPhotoGalery);
+route.route('/galery').get(getAllPhotos);
+route.route("/galery/:id").get(getPhotoGaleryById);
+
+
+route.route("/videogalery").post(createVideoStory);
+route.route('/videogalery').get(getAllVideoGalery);
 
 
 route.route("/publish/:id").get(adminGetArticle);

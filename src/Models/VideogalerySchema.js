@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const storySchema = mongoose.Schema({
+const VideogalerySchema = mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -11,5 +11,5 @@ const storySchema = mongoose.Schema({
     },
 });
 
-const Story = mongoose.model("Story", storySchema);
-export { Story };
+const Videogalery = mongoose.model("Videogalery", VideogalerySchema);
+export { Videogalery };
